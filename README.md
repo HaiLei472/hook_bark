@@ -45,9 +45,49 @@
 
 ---
 
-## 怎么装？（7 步走）
+## 怎么装？
 
-下面所有命令都在 Mac 的「终端」里运行。打开终端的方法：按 `Cmd + 空格`，输入"终端"或"Terminal"，回车。
+有两种方法，**强烈推荐方法一**——让 Claude Code 自己引导你配置，什么都不用手动改。
+
+### 方法一：Claude Code 引导配置（推荐）
+
+只需 2 步：
+
+**1. 把代码下载到本地**
+
+打开 Mac 的「终端」（按 `Cmd + 空格`，输入"终端"或"Terminal"，回车），粘下面这行回车（**记得把 `你的GitHub用户名` 替换成你 GitHub 的实际用户名**）：
+
+```bash
+git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+```
+
+如果提示 "destination path already exists"（文件夹已存在），先备份再重试：
+```bash
+mv ~/.claude/hooks ~/.claude/hooks.bak
+git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+```
+
+**2. 让 Claude Code 引导你完成剩下的配置**
+
+打开 Claude Code（在任何目录都行），把下面这段话**完整复制粘贴**到对话框，回车：
+
+```
+请读取 ~/.claude/hooks/SETUP.md 并严格按照里面的步骤引导我完成 hook_bark_ios 的配置。每一步用 AskUserQuestion 工具一次问一个问题，等用户回答后再继续。不要批量问，不要替我做决定。
+```
+
+Claude Code 会：
+- 一步步问你 Bark key 等信息
+- 自动帮你写入 key、改 settings.json、加 alias
+- 测试配置是否成功
+- 中间任何步骤出问题会帮你排查
+
+**完全不用手动改任何文件**。
+
+---
+
+### 方法二：手动配置（7 步走）
+
+如果方法一不可用（比如 Claude Code 出问题），可以手动操作。下面所有命令都在 Mac 的「终端」里运行。
 
 ### 第 1 步：把代码下载到本地
 
@@ -287,6 +327,7 @@ hookoff
 ~/.claude/
 ├── hooks/              ← 这个仓库（脚本在这）
 │   ├── README.md       ← 你正在看的
+│   ├── SETUP.md        ← 给 Claude Code 看的配置引导脚本
 │   ├── notify.sh       ← 权限确认时触发的脚本
 │   └── stop-notify.sh  ← 任务完成时触发的脚本
 ├── .bark-key           ← 你的 Bark key（私密，不会进 git）
