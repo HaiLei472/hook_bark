@@ -20,7 +20,7 @@ hook_bark_ios 是 Claude Code 的通知 hook 套件。装好后：
 
 如果缺失，停止引导，告诉用户重新克隆：
 ```
-git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+git clone git@github.com:HaiLei472/hook_bark.git ~/.claude/hooks
 ```
 
 ### 步骤 2：用 AskUserQuestion 问 Bark App 是否装好

@@ -55,16 +55,16 @@
 
 **1. 把代码下载到本地**
 
-打开 Mac 的「终端」（按 `Cmd + 空格`，输入"终端"或"Terminal"，回车），粘下面这行回车（**记得把 `你的GitHub用户名` 替换成你 GitHub 的实际用户名**）：
+打开 Mac 的「终端」（按 `Cmd + 空格`，输入"终端"或"Terminal"，回车），粘下面这行回车：
 
 ```bash
-git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+git clone git@github.com:HaiLei472/hook_bark.git ~/.claude/hooks
 ```
 
 如果提示 "destination path already exists"（文件夹已存在），先备份再重试：
 ```bash
 mv ~/.claude/hooks ~/.claude/hooks.bak
-git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+git clone git@github.com:HaiLei472/hook_bark.git ~/.claude/hooks
 ```
 
 **2. 让 Claude Code 引导你完成剩下的配置**
@@ -91,10 +91,10 @@ Claude Code 会：
 
 ### 第 1 步：把代码下载到本地
 
-复制下面这行，粘到终端，回车（**记得把 `你的GitHub用户名` 替换成你 GitHub 的实际用户名**）：
+复制下面这行，粘到终端，回车：
 
 ```bash
-git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+git clone git@github.com:HaiLei472/hook_bark.git ~/.claude/hooks
 ```
 
 **这步在干嘛**：把这套通知脚本下载到 `~/.claude/hooks/` 这个文件夹。
@@ -102,7 +102,7 @@ git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
 **如果提示** "destination path already exists"（文件夹已存在），先备份再重试：
 ```bash
 mv ~/.claude/hooks ~/.claude/hooks.bak
-git clone git@github.com:你的GitHub用户名/hook_bark_ios.git ~/.claude/hooks
+git clone git@github.com:HaiLei472/hook_bark.git ~/.claude/hooks
 ```
 
 ### 第 2 步：拿到你的 Bark key
