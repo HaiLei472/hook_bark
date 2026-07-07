@@ -1,0 +1,5 @@
+# macOS 系统文件
+.DS_Store
+
+# Superpowers 本地状态（工具内部数据，不应入库）
+.superpowers/
