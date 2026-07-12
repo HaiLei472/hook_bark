@@ -4,6 +4,8 @@
 
 > **这个文件夹是什么**：`hook_bark/` 是文档目录，里面只放 README 和 SETUP。脚本（`notify.sh`、`stop-notify.sh`）在上一级目录——也就是 `~/.claude/hooks/`（仓库根目录）。整个 hook_bark 项目的所有内容都在 `hooks/` 文件夹下。
 
+> 用 Windows + Android？看 [Windows 版文档](../windows/README.md)。
+
 ---
 
 ## 这个东西解决什么问题？
@@ -24,14 +26,19 @@
 
 ## 适合谁用？
 
+本仓库支持两套平台：
+
+| 版本 | 电脑 | 手机 | 文档 |
+|---|---|---|---|
+| macOS + iPhone | Mac | iPhone（Bark） | 本文档 + [SETUP.md](SETUP.md) |
+| Windows + Android | Win10/11 | Android（ntfy） | [Windows 版文档](../windows/README.md) |
+
 ✅ 适合你，如果你：
 - 经常用 Claude Code 跑任务，经常超过 30 秒
-- 用 Mac 电脑
-- 用 iPhone
+- 用 Mac + iPhone，**或** Windows + Android
 
 ❌ 不太适合：
-- Windows / Linux 电脑（脚本只在 Mac 上跑）
-- Android 手机（Bark 是 iPhone 专属 App）
+- Linux 电脑（暂不支持）
 - 偶尔才用 Claude Code 的人（短问答不会触发，装了也用不上）
 
 ---
@@ -47,7 +54,9 @@
 
 ---
 
-## 怎么装？
+## 怎么装？（macOS + iPhone）
+
+> 用 Windows + Android？看 [Windows 版安装文档](../windows/README.md)。
 
 有两种方法，**强烈推荐方法一**——让 Claude Code 自己引导你配置，什么都不用手动改。
 
@@ -328,14 +337,23 @@ hookoff
 ```
 ~/.claude/
 ├── hooks/              ← 这个仓库（脚本在这）
-│   ├── README.md       ← 你正在看的
-│   ├── SETUP.md        ← 给 Claude Code 看的配置引导脚本
-│   ├── notify.sh       ← 权限确认时触发的脚本
-│   └── stop-notify.sh  ← 任务完成时触发的脚本
+│   ├── README.md       ← 英文 README（仓库根，macOS 版）
+│   ├── notify.sh       ← macOS：权限确认时触发
+│   ├── stop-notify.sh  ← macOS：任务完成时触发
+│   ├── hook_bark/      ← macOS 文档目录（你正在看的就是这）
+│   │   ├── README.md
+│   │   └── SETUP.md
+│   └── windows/        ← Windows + Android 版
+│       ├── notify.ps1
+│       ├── stop-notify.ps1
+│       ├── README.md
+│       └── SETUP.md
 ├── .bark-key           ← 你的 Bark key（私密，不会进 git）
+├── .ntfy-topic         ← 你的 ntfy topic（Windows 版用，私密，不进 git）
 └── settings.json       ← Claude Code 配置，加了 hooks 字段
 
-~/.zshrc                ← 加了 hookoff / hookon / hookstatus 三个快捷命令
+~/.zshrc                ← macOS：hookoff / hookon / hookstatus 三个快捷命令
+$PROFILE                ← Windows：同上三个命令（PowerShell profile）
 ```
 
 ---

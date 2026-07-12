@@ -2,7 +2,7 @@
 
 **In one sentence**: Get pinged on your iPhone and Mac whenever Claude Code is waiting on you or has finished a long task — so you stop checking back to find it idle.
 
-[中文文档](hook_bark/README.md) · [配置引导 (SETUP.md)](hook_bark/SETUP.md)
+[中文文档](hook_bark/README.md) · [Windows + Android 版](windows/README.md) · [macOS 配置引导](hook_bark/SETUP.md)
 
 ---
 
@@ -24,14 +24,19 @@ You ask Claude to analyze a big file, install a pile of dependencies, run a test
 
 ## Who is this for?
 
+Two platform editions live in this repo:
+
+| Edition | Computer | Phone | Docs |
+|---|---|---|---|
+| macOS + iPhone | Mac | iPhone (Bark) | this README + [SETUP.md](hook_bark/SETUP.md) |
+| Windows + Android | Windows 10/11 | Android (ntfy) | [windows/README.md](windows/README.md) |
+
 ✅ A good fit if you:
 - Run Claude Code tasks that regularly take more than 30 seconds
-- Are on a Mac
-- Have an iPhone
+- Are on Mac + iPhone, **or** Windows + Android
 
 ❌ Not a good fit if you're on:
-- Windows / Linux (the scripts are macOS-only)
-- Android (Bark is iPhone-only)
+- Linux (not yet supported)
 - Only occasional short chats with Claude (won't trigger, so it'd go unused)
 
 ---
@@ -49,26 +54,32 @@ You ask Claude to analyze a big file, install a pile of dependencies, run a test
 
 ## Repository layout
 
-The repo is cloned into `~/.claude/hooks/`. Two layers:
+The repo is cloned into `~/.claude/hooks/`. macOS scripts at the root; Windows scripts under `windows/`:
 
-- **Repo root (`~/.claude/hooks/`)** — the scripts that actually run: `notify.sh`, `stop-notify.sh`
-- **`hook_bark/` subfolder** — docs only: the Chinese `README.md` and `SETUP.md` (the config guide Claude Code reads)
-
-Everything in the project lives under the `hooks/` folder.
+- **Repo root (`~/.claude/hooks/`)** - macOS scripts: `notify.sh`, `stop-notify.sh`
+- **`hook_bark/`** - macOS docs: Chinese `README.md` and `SETUP.md`
+- **`windows/`** - Windows scripts + docs: `notify.ps1`, `stop-notify.ps1`, `README.md`, `SETUP.md`
 
 ```
 ~/.claude/hooks/
-├── README.md           ← English README (this file)
-├── notify.sh           ← fires on permission needed
-├── stop-notify.sh      ← fires when a task finishes
-└── hook_bark/
-    ├── README.md       ← Chinese README
-    └── SETUP.md        ← config guide for Claude Code
+├── README.md           ← English README (this file, macOS edition)
+├── notify.sh           ← macOS: fires on permission needed
+├── stop-notify.sh      ← macOS: fires when a task finishes
+├── hook_bark/
+│   ├── README.md       ← Chinese README (macOS)
+│   └── SETUP.md        ← macOS config guide
+└── windows/            ← Windows + Android edition
+    ├── README.md
+    ├── SETUP.md
+    ├── notify.ps1
+    └── stop-notify.ps1
 ```
 
 ---
 
-## How to install
+## How to install (macOS + iPhone)
+
+> On Windows + Android? See [windows/README.md](windows/README.md) instead.
 
 Two methods. **Method 1 is strongly recommended** — let Claude Code walk you through it, no manual file editing.
 
