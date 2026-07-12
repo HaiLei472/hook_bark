@@ -1,5 +1,16 @@
 # macOS 系统文件
 .DS_Store
 
+# Windows 系统文件
+Thumbs.db
+desktop.ini
+
 # Superpowers 本地状态（工具内部数据，不应入库）
 .superpowers/
+
+# 推送密钥 / topic（私密，不进 git）
+.bark-key
+.ntfy-topic
+
+# hooks 开关标记
+.hooks-disabled
